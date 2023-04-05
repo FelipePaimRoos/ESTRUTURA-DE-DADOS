@@ -1,11 +1,15 @@
 public interface IVetor{
 
-    public void adicionarAluno (Aluno aluno);
+     void adicionarAluno (Aluno aluno);
 
-    public int tamanhoAtual();
+     int tamanhoAtual();
 
-    public bool contem(Aluno aluno);
+     bool contem(Aluno aluno);
 
-    public bool cheio();
+     bool cheio();
+    
+     void novoVetor();
+    
+     bool remove(Aluno aluno);
 
 }
