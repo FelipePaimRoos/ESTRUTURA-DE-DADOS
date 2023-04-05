@@ -26,6 +26,8 @@ class HelloWorld {
     System.Console.Write("É existente o aluno: "+vetores.contem(aluno1)+ "\n");
     
     System.Console.Write("O tamanho atual é " +vetores.tamanhoAtual() +"\n");
+    
+    System.Console.Write(vetores.detalhes(aluno3));
 
  //   System.Console.Write(vetores.relatorio());
 
