@@ -1,16 +1,20 @@
 class Vetor : IVetor{
-    
+
 
     object[] listaGeral = new object[2];
 
-    //Aluno[] listaAlunos = new Aluno[2]; 
-    
+    //Aluno[] listaAlunos = new Aluno[2];
+
     public int tamanho = 0;
-    
+
     public int tamanhoAtual(){
-        
-        return this.listaGeral.Length;
-        
+        int cont = 0;
+        for (int i = 0; i < listaGeral.Length; i++){
+            if(listaGeral[i] != null){
+                cont++;
+            }
+        }
+        return cont;
     }
 
     public void adicionarAluno(Aluno aluno){
@@ -24,7 +28,7 @@ class Vetor : IVetor{
             break;
             } else {
                 novoVetor();
-                
+
             }
         }
         }
@@ -33,13 +37,9 @@ class Vetor : IVetor{
         for(int i = 0; i < listaGeral.Length; i++){
             if(listaGeral[i] == aluno){
                 return true;
-                
-            }else {
-                return false;
-               
-            }
+            
         }
-        return false;
+    }return false;
     }
 
     public bool cheio(){
@@ -50,7 +50,7 @@ class Vetor : IVetor{
     }
 
     public void novoVetor(){
-  
+
         if(cheio() == true){
             object[] listaGerali = new object[tamanho*2];
 
@@ -62,11 +62,15 @@ class Vetor : IVetor{
         }
     }
 
-/*
-    public string relatorio(){
-        for(int i = 0; i < listaAlunos.Length; i++){
-            
-        }
+    public bool remove(Aluno aluno){
+        for(int i = 0; i < listaGeral.Length; i++){
+            if(listaGeral[i] == aluno){
+                listaGeral[i] = listaGeral[i+1];
+                for(int j = i; j < (listaGeral.Length-i-1); j++){
+                    listaGeral[j] = listaGeral[j+1];
+                }
+                return true;
     }
-    */
-}   
+}   return false;
+}
+}
