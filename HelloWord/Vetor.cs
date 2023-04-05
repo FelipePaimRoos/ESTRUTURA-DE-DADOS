@@ -73,4 +73,18 @@ class Vetor : IVetor{
     }
 }   return false;
 }
+    public string detalhes(Aluno aluno){
+        buscar(aluno);
+        return "Nome: "+buscar(aluno).Nome +"\nIdade: "+buscar(aluno).Idade+"\nNota: "+buscar(aluno).Nota;
+        
+    }
+    
+    public Aluno buscar(Aluno aluno){
+        for(int i = 0; i < listaGeral.Length; i++){
+            if(listaGeral[i] == aluno){
+                return aluno;
+    }
+        }
+        return null;
+}
 }
