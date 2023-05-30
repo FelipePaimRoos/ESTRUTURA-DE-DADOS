@@ -1,14 +1,13 @@
-public class Main{
+public class Main {
 
-    public static void main(String[] args) {
-        
-        FilaLista fila = new FilaLista();
+    public static void main(String [] args){
 
-        fila.add(1);    
+        FilaVet fila = new FilaVet(10);
+
+        fila.add(1);
         fila.add(10);
-        fila.add(20);
 
         fila.imprimirFila();
-        System.out.println(fila.size());
     }
+    
 }
