@@ -33,7 +33,6 @@ public class LSE {
         }
 
         if(p == null ){  
-            inicio = p.getProx();
             return false;
         }
         
@@ -53,7 +52,7 @@ public class LSE {
 
         Noh p = inicio;
         while(p != null){
-            System.out.println(p);
+            System.out.println(p.getInfo().getNome());
             p = p.getProx();
         }
     }

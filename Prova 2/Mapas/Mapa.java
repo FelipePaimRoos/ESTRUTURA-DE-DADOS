@@ -1,6 +1,8 @@
+import java.util.Map;
+
 public class Mapa {
     
-    private LSE[] vetorLista;
+    public LSE[] vetorLista;
 
     public Mapa() {
         this.vetorLista = new LSE[10];
@@ -27,21 +29,35 @@ public class Mapa {
         }
     }
 
+    public boolean remove(int chave){
+        int hash = hash(chave);
+
+        LSE lista = this.vetorLista[hash];
+
+        if(lista == null){
+            return false;
+        } else {
+            for(Noh n = lista.getInicio(); n != null; n = n.getProx()){
+                if(n.getInfo().getMatricula() == chave){
+                    vetorLista[hash].remove(n.getInfo());
+                }
+            }
+            return true;
+        }
+        
+    }
+
     public int hash(int chave){
 
         return chave % vetorLista.length;
+
     }
 
 
     public void resize(){
-        this.lista[] = new LSE[vetorLista.length * 2];
-
-            for(int i = 0; i < vetorLista.length; i++){
-                lista.put(i, vetorLista[i]);
-            }
-
-            this.vetorLista = this.lista;
-            
+        LSE[] lista = new LSE[vetorLista.length * 2];
+        
+        vetorLista = lista;
         }
 
 
@@ -49,14 +65,41 @@ public class Mapa {
         
         for(int i = 0; i < vetorLista.length; i++){
             System.out.println("Na casa "+i+" existe: ");
-            vetorLista[i].imprimirLista();
+                if(vetorLista[i] != null){
+                    vetorLista[i].imprimirLista();
+                }
         }
     }
 
     public void rehash(){
 
         for(int i = 0; i < vetorLista.length; i++){
+            int hash = hash(i);
+
+            LSE lista = this.vetorLista[hash];
+            
+            for(Noh n = lista.getInicio(); n != null; n = n.getProx()){
+                put(n.getInfo().getMatricula(), n.getInfo());
+        }
             
         }
     }
+
+    public Aluno get(int chave){
+        int hash = hash(chave);
+
+        LSE lista = this.vetorLista[hash];
+
+        if(lista == null){
+            return null;
+        } else {
+            for(Noh n = lista.getInicio(); n != null; n = n.getProx()){
+                if(n.getInfo().getMatricula() == chave){
+                    return n.getInfo();
+                }
+            }
+            return null;
+        }
+    }
+    
 }
