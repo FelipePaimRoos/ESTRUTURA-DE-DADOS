@@ -28,16 +28,35 @@ public class Mapa {
     }
 
     public int hash(int chave){
+
         return chave % vetorLista.length;
     }
 
 
     public void resize(){
-        this.vetorLista = new LSE[vetorLista.length * 2];
+        this.lista[] = new LSE[vetorLista.length * 2];
+
+            for(int i = 0; i < vetorLista.length; i++){
+                lista.put(i, vetorLista[i]);
+            }
+
+            this.vetorLista = this.lista;
+            
+        }
+
+
+    public void imprimir(){
+        
+        for(int i = 0; i < vetorLista.length; i++){
+            System.out.println("Na casa "+i+" existe: ");
+            vetorLista[i].imprimirLista();
+        }
+    }
+
+    public void rehash(){
 
         for(int i = 0; i < vetorLista.length; i++){
             
         }
-
     }
 }

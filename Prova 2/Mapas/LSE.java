@@ -48,4 +48,13 @@ public class LSE {
         return false;
        
     }
+
+    public void imprimirLista(){
+
+        Noh p = inicio;
+        while(p != null){
+            System.out.println(p);
+            p = p.getProx();
+        }
+    }
 }
